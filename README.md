@@ -1,65 +1,44 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
+# Library-js
 
-# Project Name
+> Libary-js is a simple introductory javascript project to demonstrate how to create a form using HTML and use Javascript to populate it.
 
-> One paragraph statement about the project.
 
-![screenshot](./app_screenshot.png)
-
-Additional description about the project and its features.
+![](screenshot.png)
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- JavaScript
+- HTML
+- CSS
 
-## Live Demo
+## [Live demo](https://raw.githack.com/paulo-techie/library-js/feature-library/index.html)
 
-[Live Demo Link](https://livedemo.com)
+### how to run locally
 
-
-## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-### Setup
-
-### Install
-
-### Usage
-
-### Run tests
-
-### Deployment
+- Install [Node.js](https://nodejs.org/en/download/)
+- Clone this repository by running `git clone https://github.com/paulo-techie/library-js.git`
+- Change your current working directory to the project `cd library-js`
+- Run `npm install`
+- Run `npm start`
+- Enjoy
 
 
+## taskdates
 
-## Authors
+👤 Hasan Kharouf
 
-👤 **Author1**
+- Github: [@WinterCore](https://github.com/WinterCore)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+👤 Paul Omondi
 
-👤 **Author2**
+- Github: [@paulo-techie](https://github.com/paulo-techie)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome!
+Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](issues/).
 
 ## Show your support
 
@@ -67,10 +46,9 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- Thanks to Microverse and the wonderful reviewers who have guided us to the completion of this project
+
 
 ## 📝 License
 
-This project is [MIT](./MIT.md) licensed.
+This project is [MIT](lic.url) licensed.

@@ -1,26 +1,36 @@
 {
-  "name": "to-do-list",
+  "name": "library",
   "version": "1.0.0",
-  "description": "![](https://img.shields.io/badge/Microverse-blueviolet)",
-  "main": "index.js",
+  "description": "",
+  "main": "main.js",
   "scripts": {
-    "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "build": "webpack --mode production",
+    "lint:style": "stylelint **/*.{css,scss}",
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/paulo-techie/to-do-list.git"
+    "url": "git+https://github.com/paulo-techie/library-js.git"
   },
-  "keywords": [],
-  "author": "",
+  "taskdate": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/paulo-techie/to-do-list/issues"
+    "url": "https://github.com/paulo-techie/library-js/issues"
   },
-  "homepage": "https://github.com/paulo-techie/to-do-list#readme",
+  "homepage": "https://github.com/paulo-techie/library-js#readme",
   "devDependencies": {
-    "webpack": "^5.37.1",
-    "webpack-cli": "^4.7.0"
-  },
-  "dependencies": {}
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "stylelint": "^13.3.3",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-csstree-validator": "^1.8.0",
+    "stylelint-scss": "^3.17.2",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
 }

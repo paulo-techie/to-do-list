@@ -1,0 +1,11 @@
+form {
+  display: flex;
+}
+
+#addtask-form {
+  display: none;
+}
+
+.form-group {
+  display: flex;
+}
