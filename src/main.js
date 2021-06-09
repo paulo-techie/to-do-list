@@ -1,15 +1,15 @@
 import taskRenderer from './dom';
-import Task from './task';
+import task from './task';
 
 const addtaskForm = document.querySelector('#addtask-form');
 const addtaskBtn = document.querySelector('#addtask-btn');
 const tasksContainer = document.querySelector('#tasks-list');
 
-const storedtodoList = JSON.parse(localStorage.getItem('todoList')) || [];
+// const storedtodoList = JSON.parse(localStorage.getItem('todoList')) || [];
 
-let mytodoList = storedtodoList.map(({
-  taskdate, title, description, completedStatus,
-}) => new Task(taskdate, title, description, completedStatus));
+// let mytodoList = storedtodoList.map(({
+let mytodoList = [];
+//  }) => new Task(taskdate, title, description));
 
 function renderTask(Task) {
   const rootNode = taskRenderer.createStructure({
@@ -32,9 +32,9 @@ function renderTask(Task) {
 mytodoList.forEach((Task) => renderTask(Task));
 
 function addtaskTotodoList({
-  title, description, taskdate, completedStatus,
+  taskdate, title, description
 }) {
-  const Task = new Task(taskdate, title, description, completedStatus);
+  const Task = new task(taskdate, title, description);
 
   mytodoList.push(Task);
   localStorage.setItem('todoList', JSON.stringify(mytodoList));
@@ -43,7 +43,7 @@ function addtaskTotodoList({
 }
 
 addtaskBtn.addEventListener('click', () => {
-  addtaskForm.style.display = 'flex';
+  addtaskForm.style.display = 'block';
 });
 
 addtaskForm.addEventListener('submit', (e) => {
@@ -51,17 +51,14 @@ addtaskForm.addEventListener('submit', (e) => {
   const taskdate = document.querySelector('#taskdate');
   const title = document.querySelector('#title');
   const description = document.querySelector('#description');
-  const completedStatus = document.querySelector('#completedStatus');
 
   addtaskTotodoList({
     taskdate: taskdate.value,
     title: title.value,
-    description: description.value,
-    completedStatus: completedStatus.checked,
+    description: description.value
   });
 
   taskdate.value = '';
   title.value = '';
   description.value = '';
-  completedStatus.checked = false;
 });
