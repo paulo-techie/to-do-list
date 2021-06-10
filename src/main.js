@@ -5,11 +5,9 @@ const addtaskForm = document.querySelector('#addtask-form');
 const addtaskBtn = document.querySelector('#addtask-btn');
 const tasksContainer = document.querySelector('#tasks-list');
 
-// const storedtodoList = JSON.parse(localStorage.getItem('todoList')) || [];
+const storedtodoList = JSON.parse(localStorage.getItem('todoList')) || [];
 
-// let mytodoList = storedtodoList.map(({
-let mytodoList = [];
-//  }) => new Task(taskdate, title, description));
+let mytodoList = storedtodoList.map(({ taskdate, title, description }) => new task(taskdate, title, description));
 
 function renderTask(Task) {
   const rootNode = taskRenderer.createStructure({
@@ -17,12 +15,7 @@ function renderTask(Task) {
       mytodoList = mytodoList.filter(item => item !== Task);
       localStorage.setItem('todoList', JSON.stringify(mytodoList));
       rootNode.remove();
-    },
-    onReadToggle() {
-      Task.toggleRead();
-      localStorage.setItem('todoList', JSON.stringify(mytodoList));
-      taskRenderer.update(rootNode, Task);
-    },
+    }
   });
 
   tasksContainer.appendChild(rootNode);
@@ -62,3 +55,20 @@ addtaskForm.addEventListener('submit', (e) => {
   title.value = '';
   description.value = '';
 });
+
+
+/* get all the task boxes and make them collapsible */
+
+const acc = document.getElementsByClassName('title');
+
+for (let i = 0; i < acc.length; i += 1) {
+  acc[i].addEventListener('click', function() {
+    this.classList.toggle('active');
+    let panel = this.nextElementSibling;
+    if (panel.style.display === 'block') {
+      panel.style.display = 'none';
+    } else {
+      panel.style.display = 'block';
+    }
+  });
+}
