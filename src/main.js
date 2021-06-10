@@ -1,5 +1,5 @@
 import taskRenderer from './dom';
-import task from './task';
+import ToDo from './task';
 
 const addtaskForm = document.querySelector('#addtask-form');
 const addtaskBtn = document.querySelector('#addtask-btn');
@@ -7,7 +7,9 @@ const tasksContainer = document.querySelector('#tasks-list');
 
 const storedtodoList = JSON.parse(localStorage.getItem('todoList')) || [];
 
-let mytodoList = storedtodoList.map(({ taskdate, title, description }) => new task(taskdate, title, description));
+let mytodoList = storedtodoList.map(({
+  taskdate, title, description,
+}) => new ToDo(taskdate, title, description));
 
 function renderTask(Task) {
   const rootNode = taskRenderer.createStructure({
@@ -15,7 +17,7 @@ function renderTask(Task) {
       mytodoList = mytodoList.filter(item => item !== Task);
       localStorage.setItem('todoList', JSON.stringify(mytodoList));
       rootNode.remove();
-    }
+    },
   });
 
   tasksContainer.appendChild(rootNode);
@@ -25,9 +27,9 @@ function renderTask(Task) {
 mytodoList.forEach((Task) => renderTask(Task));
 
 function addtaskTotodoList({
-  taskdate, title, description
+  taskdate, title, description,
 }) {
-  const Task = new task(taskdate, title, description);
+  const Task = new ToDo(taskdate, title, description);
 
   mytodoList.push(Task);
   localStorage.setItem('todoList', JSON.stringify(mytodoList));
@@ -48,7 +50,7 @@ addtaskForm.addEventListener('submit', (e) => {
   addtaskTotodoList({
     taskdate: taskdate.value,
     title: title.value,
-    description: description.value
+    description: description.value,
   });
 
   taskdate.value = '';
@@ -62,9 +64,9 @@ addtaskForm.addEventListener('submit', (e) => {
 const acc = document.getElementsByClassName('title');
 
 for (let i = 0; i < acc.length; i += 1) {
-  acc[i].addEventListener('click', function() {
+  acc[i].addEventListener('click', function togglePanel() {
     this.classList.toggle('active');
-    let panel = this.nextElementSibling;
+    const panel = this.nextElementSibling;
     if (panel.style.display === 'block') {
       panel.style.display = 'none';
     } else {
