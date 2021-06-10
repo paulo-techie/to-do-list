@@ -1,6 +1,6 @@
-# Library-js
+# To Do List
 
-> Libary-js is a simple introductory javascript project to demonstrate how to create a form using HTML and use Javascript to populate it.
+> To Do List is a simple Javascript app that lets you add tasks by date and delete them when done.
 
 
 ![](screenshot.png)
@@ -11,23 +11,27 @@
 - HTML
 - CSS
 
-## [Live demo](https://raw.githack.com/paulo-techie/library-js/feature-library/index.html)
+## Libraries and packages
+
+- NPM
+- Bootstrap
+- Fontawesome
+
+
+## [Live demo](https://raw.githack.com/paulo-techie/to-do-list/feature-todos/index.html)
 
 ### how to run locally
 
-- Install [Node.js](https://nodejs.org/en/download/)
-- Clone this repository by running `git clone https://github.com/paulo-techie/library-js.git`
-- Change your current working directory to the project `cd library-js`
+- Download and install [Node.js](https://nodejs.org/en/download/)
+- Clone this repository on your terminal by running `git clone https://github.com/paulo-techie/to-do-list.git`
+- Change your current working directory to the project directory `cd to-do-list`
 - Run `npm install`
+- Run `npm install --save @fortawesome/fontawesome-free`
 - Run `npm start`
 - Enjoy
 
 
-## taskdates
-
-👤 Hasan Kharouf
-
-- Github: [@WinterCore](https://github.com/WinterCore)
+## Contributor
 
 👤 Paul Omondi
 
@@ -38,17 +42,21 @@
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](../../issues/).
+
 
 ## Show your support
 
 Give a ⭐️ if you like this project!
 
+
 ## Acknowledgments
 
-- Thanks to Microverse and the wonderful reviewers who have guided us to the completion of this project
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
 
 
 ## 📝 License
 
-This project is [MIT](lic.url) licensed.
+This project is  [MIT](./MIT.md) licensed.
