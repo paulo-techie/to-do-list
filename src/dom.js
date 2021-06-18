@@ -14,7 +14,7 @@ const taskRenderer = {
     cardBody.classList.add('card-body', 'bg-white');
     contentDiv.classList.add('content', 'card-text');
     dateDiv.classList.add('date', 'text-secondary', 'float-left');
-    removeButton.classList.add('remove', 'btn', 'text-secondary', 'float-right');
+    removeButton.classList.add('remove', 'btn', 'text-danger', 'float-right');
 
     card.appendChild(cardTitle);
     card.appendChild(cardBody);
@@ -40,7 +40,7 @@ const taskRenderer = {
     titleDiv.innerHTML = `${task.title}`;
     dateDiv.innerHTML = `${task.taskdate}`;
     contentDiv.innerHTML = `${task.description} description.`;
-  },
+  }
 };
 
 export default taskRenderer;

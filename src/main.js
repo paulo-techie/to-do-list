@@ -4,12 +4,37 @@ import ToDo from './task';
 const addtaskForm = document.querySelector('#addtask-form');
 const addtaskBtn = document.querySelector('#addtask-btn');
 const tasksContainer = document.querySelector('#tasks-list');
+const values = [];
+
+const select = document.createElement('select');
+select.name = 'projects';
+select.id = 'projects';
+
+const label = document.createElement('label');
+label.innerHTML = 'Select Project: ';
+label.htmlFor = 'projects';
+
+document.getElementById('project-container').appendChild(label).appendChild(select);
+
 
 const storedtodoList = JSON.parse(localStorage.getItem('todoList')) || [];
 
 let mytodoList = storedtodoList.map(({
   taskdate, title, description,
 }) => new ToDo(taskdate, title, description));
+
+  
+for (let i=0; i < mytodoList.length ; ++i)
+  values.push(mytodoList[i]['title']);
+
+  
+for (const val of values) {
+  let option = document.createElement('option');
+  option.value = val;
+  option.text = val.charAt(0).toUpperCase() + val.slice(1);
+  select.appendChild(option);
+}
+
 
 function renderTask(Task) {
   const rootNode = taskRenderer.createStructure({
@@ -19,6 +44,7 @@ function renderTask(Task) {
       rootNode.remove();
     },
   });
+
 
   tasksContainer.appendChild(rootNode);
   taskRenderer.update(rootNode, Task);
