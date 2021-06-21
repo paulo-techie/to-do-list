@@ -4,17 +4,23 @@ import ToDo from './task';
 const addtaskForm = document.querySelector('#addtask-form');
 const addtaskBtn = document.querySelector('#addtask-btn');
 const tasksContainer = document.querySelector('#tasks-list');
+const projectsContainer = document.getElementById('project-container');
 const values = [];
 
-const select = document.createElement('select');
-select.name = 'projects';
-select.id = 'projects';
+const select = document.createElement('input');
+select.setAttribute('name', 'projects');
+select.setAttribute('list', 'projects');
 
 const label = document.createElement('label');
 label.innerHTML = 'Select Project: ';
 label.htmlFor = 'projects';
 
-document.getElementById('project-container').appendChild(label).appendChild(select);
+const projectOptions = document.createElement('datalist');
+projectOptions.setAttribute('id', 'projects');
+
+
+projectsContainer.appendChild(label).appendChild(select);
+projectsContainer.appendChild(projectOptions);
 
 
 const storedtodoList = JSON.parse(localStorage.getItem('todoList')) || [];
@@ -32,7 +38,7 @@ for (const val of values) {
   let option = document.createElement('option');
   option.value = val;
   option.text = val.charAt(0).toUpperCase() + val.slice(1);
-  select.appendChild(option);
+  projectOptions.appendChild(option);
 }
 
 
