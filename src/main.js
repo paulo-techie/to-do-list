@@ -3,6 +3,7 @@ import ToDo from './task';
 
 const addtaskForm = document.querySelector('#addtask-form');
 const addtaskBtn = document.querySelector('#addtask-btn');
+const edittaskBtn = document.querySelector('#edittask-btn');
 const tasksContainer = document.querySelector('#tasks-list');
 const projectsContainer = document.getElementById('project-container');
 const values = [];
@@ -10,37 +11,33 @@ const values = [];
 const select = document.createElement('input');
 select.setAttribute('name', 'projects');
 select.setAttribute('list', 'projects');
+select.setAttribute('id', 'project');
 
 const label = document.createElement('label');
-label.innerHTML = 'Select Project: ';
+label.innerHTML = 'Project: ';
 label.htmlFor = 'projects';
 
 const projectOptions = document.createElement('datalist');
 projectOptions.setAttribute('id', 'projects');
 
-
 projectsContainer.appendChild(label).appendChild(select);
 projectsContainer.appendChild(projectOptions);
-
 
 const storedtodoList = JSON.parse(localStorage.getItem('todoList')) || [];
 
 let mytodoList = storedtodoList.map(({
-  taskdate, title, description,
-}) => new ToDo(taskdate, title, description));
+  taskdate, title, description, project,
+}) => new ToDo(taskdate, title, description, project));
 
-  
-for (let i=0; i < mytodoList.length ; ++i)
-  values.push(mytodoList[i]['title']);
+// for (let i=0; i < mytodoList.length ; ++i)
+//   values.push(mytodoList[i]['project']);
 
-  
 for (const val of values) {
-  let option = document.createElement('option');
+  const option = document.createElement('option');
   option.value = val;
   option.text = val.charAt(0).toUpperCase() + val.slice(1);
   projectOptions.appendChild(option);
 }
-
 
 function renderTask(Task) {
   const rootNode = taskRenderer.createStructure({
@@ -59,9 +56,9 @@ function renderTask(Task) {
 mytodoList.forEach((Task) => renderTask(Task));
 
 function addtaskTotodoList({
-  taskdate, title, description,
+  taskdate, title, description, project,
 }) {
-  const Task = new ToDo(taskdate, title, description);
+  const Task = new ToDo(taskdate, title, description, project);
 
   mytodoList.push(Task);
   localStorage.setItem('todoList', JSON.stringify(mytodoList));
@@ -78,18 +75,20 @@ addtaskForm.addEventListener('submit', (e) => {
   const taskdate = document.querySelector('#taskdate');
   const title = document.querySelector('#title');
   const description = document.querySelector('#description');
+  const project = document.querySelector('#project');
 
   addtaskTotodoList({
     taskdate: taskdate.value,
     title: title.value,
     description: description.value,
+    project: project.value,
   });
 
   taskdate.value = '';
   title.value = '';
   description.value = '';
+  project.value = '';
 });
-
 
 /* get all the task boxes and make them collapsible */
 
