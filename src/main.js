@@ -60,6 +60,12 @@ function renderTask(Task) {
       project.value = editItem.project;
       addtaskForm.style.display = 'block';
       updateTaskBtn.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Update</button>';
+
+      updateTaskBtn.addEventListener('click', () => {
+        if (this.onRemove) {
+          this.onRemove();
+        }
+      });
     }
   });
 
