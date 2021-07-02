@@ -5,7 +5,6 @@ const addtaskForm = document.querySelector('#addtask-form');
 const addtaskBtn = document.querySelector('#addtask-btn');
 const tasksContainer = document.querySelector('#tasks-list');
 const projectsContainer = document.getElementById('project-container');
-// const values = [];
 
 const select = document.createElement('input');
 select.setAttribute('name', 'projects');
@@ -28,15 +27,6 @@ let mytodoList = storedtodoList.map(({
   taskdate, title, description, project,
 }) => new ToDo(taskdate, title, description, project));
 
-// for (let i=0; i < mytodoList.length ; ++i)
-//   values.push(mytodoList[i]['project']);
-
-// for (const val of values) {
-//   const option = document.createElement('option');
-//   option.value = val;
-//   option.text = val.charAt(0).toUpperCase() + val.slice(1);
-//   projectOptions.appendChild(option);
-// }
 
 function renderTask(Task) {
   const rootNode = taskRenderer.createStructure({
@@ -77,7 +67,7 @@ function renderTask(Task) {
 mytodoList.forEach((Task) => renderTask(Task));
 
 function addtaskTotodoList({
-  taskdate, title, description, project,
+  taskdate, title, description, project
 }) {
   const Task = new ToDo(taskdate, title, description, project);
 
@@ -126,4 +116,3 @@ for (let i = 0; i < acc.length; i += 1) {
     }
   });
 }
-
