@@ -54,6 +54,7 @@ function renderTask(Task) {
       updateTaskBtn.addEventListener('click', () => {
         if (this.onRemove) {
           this.onRemove();
+          updateTaskBtn.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Confirm</button>';
         }
       });
     },
