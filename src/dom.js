@@ -38,6 +38,12 @@ const taskRenderer = {
       }
     });
 
+    editButton.addEventListener('click', () => {
+      if (callbacks.onEdit) {
+        callbacks.onEdit();
+      }
+    });
+
     return card;
   },
 

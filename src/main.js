@@ -3,10 +3,9 @@ import ToDo from './task';
 
 const addtaskForm = document.querySelector('#addtask-form');
 const addtaskBtn = document.querySelector('#addtask-btn');
-const edittaskBtn = document.querySelector('#edittask-btn');
 const tasksContainer = document.querySelector('#tasks-list');
 const projectsContainer = document.getElementById('project-container');
-const values = [];
+// const values = [];
 
 const select = document.createElement('input');
 select.setAttribute('name', 'projects');
@@ -32,12 +31,12 @@ let mytodoList = storedtodoList.map(({
 // for (let i=0; i < mytodoList.length ; ++i)
 //   values.push(mytodoList[i]['project']);
 
-for (const val of values) {
-  const option = document.createElement('option');
-  option.value = val;
-  option.text = val.charAt(0).toUpperCase() + val.slice(1);
-  projectOptions.appendChild(option);
-}
+// for (const val of values) {
+//   const option = document.createElement('option');
+//   option.value = val;
+//   option.text = val.charAt(0).toUpperCase() + val.slice(1);
+//   projectOptions.appendChild(option);
+// }
 
 function renderTask(Task) {
   const rootNode = taskRenderer.createStructure({
@@ -46,6 +45,22 @@ function renderTask(Task) {
       localStorage.setItem('todoList', JSON.stringify(mytodoList));
       rootNode.remove();
     },
+
+    onEdit() {
+      const taskdate = document.querySelector('#taskdate');
+      const title = document.querySelector('#title');
+      const description = document.querySelector('#description');
+      const project = document.querySelector('#project');
+      const updateTaskBtn = document.querySelector('#submit-btn');
+      const editItem = mytodoList.find(item => item === Task);
+
+      taskdate.value = editItem.taskdate;
+      title.value = editItem.title;
+      description.value = editItem.description;
+      project.value = editItem.project;
+      addtaskForm.style.display = 'block';
+      updateTaskBtn.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Update</button>';
+    }
   });
 
 
@@ -105,3 +120,4 @@ for (let i = 0; i < acc.length; i += 1) {
     }
   });
 }
+
