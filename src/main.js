@@ -24,7 +24,7 @@ projectsContainer.appendChild(projectOptions);
 const storedtodoList = JSON.parse(localStorage.getItem('todoList')) || [];
 
 let mytodoList = storedtodoList.map(({
-  taskdate, title, description, project
+  taskdate, title, description, project,
 }) => new ToDo(taskdate, title, description, project));
 
 
@@ -56,7 +56,7 @@ function renderTask(Task) {
           this.onRemove();
         }
       });
-    }
+    },
   });
 
 
@@ -67,7 +67,7 @@ function renderTask(Task) {
 mytodoList.forEach((Task) => renderTask(Task));
 
 function addtaskTotodoList({
-  taskdate, title, description, project
+  taskdate, title, description, project,
 }) {
   const Task = new ToDo(taskdate, title, description, project);
 
@@ -92,7 +92,7 @@ addtaskForm.addEventListener('submit', (e) => {
     taskdate: taskdate.value,
     title: title.value,
     description: description.value,
-    project: project.value
+    project: project.value,
   });
 
   taskdate.value = '';
